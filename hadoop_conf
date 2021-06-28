@@ -1,0 +1,40 @@
+$HADOOP_HOME/bin/hadoop  jar $HADOOP_HOME/hadoop-streaming.jar \
+    -input myInputDirs \
+    -output myOutputDir \
+    -mapper myPythonScript.py \
+    -jobconf mapred.reduce.tasks=0 \
+    -file myPythonScript.py
+
+try this
+
+hadoop  jar ~/hadoop-streaming.jar \
+    -input /labs/lab03data \
+    -output /user/konstantin.parfenov/lab_3_filtered \
+    -mapper lab_3_mapper.py \
+    -jobconf mapred.reduce.tasks=0 \
+    -file lab_3_mapper.py
+
+
+lab_2_xtr
+
+hadoop  jar ~/hadoop-streaming.jar \
+    -input /labs/lab02data/facetz_2015_02_12/ \
+    -output /user/konstantin.parfenov/lab_2_xtr_2 \
+    -mapper lab_2_xtr_mapper.py \
+    -file lab_2_xtr_mapper.py \
+    -reducer lab_2_xtr_reducer.py \
+    -file lab_2_xtr_reducer.py \
+
+
+hadoop fs -ls /user/konstantin.parfenov/lab_2_xtr_2/
+hadoop fs -get /user/konstantin.parfenov/lab_2_xtr_2/part-00000 red_out_2
+
+
+
+
+konstantin.parfenov@spark-master:~$ nano sort.py
+konstantin.parfenov@spark-master:~$ ./sort.py < ./red_out > ./top350.txt 
+-bash: ./sort.py: Permission denied
+konstantin.parfenov@spark-master:~$ chmod +rwx ./sort.py 
+konstantin.parfenov@spark-master:~$ nano sort.py
+konstantin.parfenov@spark-master:~$ ./sort.py < ./red_out > ./top350.txt 

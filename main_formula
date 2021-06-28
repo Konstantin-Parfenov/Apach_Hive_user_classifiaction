@@ -1,0 +1,19 @@
+P domain U driver = (SUM (auto_flag) (where url = domain)) / (count (url))
+
+P domain  = count (where url = domains) / (count (url))
+P driver = Sum (autoflag) / (count (url))
+
+
+CREATE TABLE result AS
+SELECT t1.url, 
+       (t1.pdom_1/6571038)*(t1.pdom_1/6571038)/((t2.pdrive_1/6571038)*(313527/6571038)) as relevance
+       FROM pdomain_1 as t1
+       INNER JOIN
+       pdrive_1 as t2
+       ON t1.url = t2.url
+       ;
+
+
+
+
+ 
