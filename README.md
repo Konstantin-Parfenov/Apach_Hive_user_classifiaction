@@ -1,4 +1,4 @@
-# Apach_Hive_user_classifiaction
+# Apache_Hive_user_classifiaction
 Классифицировать интернет-пользователей на группы по логу посещения сайтов с помощью Apache Hive
 
 Файлы расположены в директории HDFS.
